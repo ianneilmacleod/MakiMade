@@ -8,8 +8,8 @@ particularly using the Geosoft approach to data processing.
 Before retirement, I was very motivated to expose more of the Geosoft processing environment to Python. The intention was to allow 
 Geosoft customers to more easily integrate the work they do with Geosoft environment and their own needs for geoscience data processing.
 In particular, Geosoft exposed all data read and write API functions to open access (no license required), and together with
-[Geosoft's freely-available viewer](https://www.seequent.com/products-solutions/geosoft-viewer/), this provided a remarkably useful
-way to deal with geophysical and other data formats.
+[Geosoft's freely-available viewer](https://www.seequent.com/products-solutions/geosoft-viewer/), this provides a remarkably useful
+way to deal with geophysical and other spatial data formats.
 
 In this project, I am using [Geosoft's GX developer](https://geosoftgxdev.atlassian.net/wiki/spaces/GD/pages/44367874/Python+in+GX+Developer)
 to work with spatial data as I make things in my workshop, where I use 3D printers and 
