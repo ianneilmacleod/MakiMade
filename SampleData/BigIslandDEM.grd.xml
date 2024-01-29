@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='C:\Users\ianne\Documents\Geosoft\Desktop Applications\stylesheets\Geosoft-2018[Geosoft-2018.xslt].xslt'?>
+<gmd:MD_Metadata xsi:schemaLocation="http://www.isotc211.org/2005/gmd ../schemas/iso19139fra/gmd/gmd.xsd" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:map="urn:brgm:mapping" xmlns:gmd="http://www.isotc211.org/2005/gmd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:gml="http://www.opengis.net/gml" xmlns:gts="http://www.isotc211.org/2005/gts" xmlns:gmx="http://www.isotc211.org/2005/gmx" xmlns:gfc="http://www.isotc211.org/2005/gfc" xmlns:gco="http://www.isotc211.org/2005/gco">
+	<geosoft xmlns="http://www.geosoft.com/schema/geo">
+		<dataset version="1">
+			<geo:source_scale xmlns:geo="http://www.geosoft.com/schema/geo">30m</geo:source_scale>
+			<geo:uom xmlns:geo="http://www.geosoft.com/schema/geo"/>
+			<geo:metadata_created_by xmlns:geo="http://www.geosoft.com/schema/geo">Geosoft Inc.</geo:metadata_created_by>
+			<geo:metadata_creation_date xmlns:geo="http://www.geosoft.com/schema/geo">2016-04-04</geo:metadata_creation_date>
+			<geo:title xmlns:geo="http://www.geosoft.com/schema/geo">SRTM1 Pacific US and Alaska</geo:title>
+			<geo:unitofmeasurement xmlns:geo="http://www.geosoft.com/schema/geo"/>
+			<geo:category xmlns:geo="http://www.geosoft.com/schema/geo">Digital Terrain Model</geo:category>
+			<geo:province_state xmlns:geo="http://www.geosoft.com/schema/geo">Regional</geo:province_state>
+			<geo:region xmlns:geo="http://www.geosoft.com/schema/geo">Pacific US, Alaska, Hawaii</geo:region>
+			<geo:continent xmlns:geo="http://www.geosoft.com/schema/geo">North America</geo:continent>
+			<geo:file_format xmlns:geo="http://www.geosoft.com/schema/geo">Geosoft HGD</geo:file_format>
+			<geo:resolution xmlns:geo="http://www.geosoft.com/schema/geo"/>
+			<geo:weblink xmlns:geo="http://www.geosoft.com/schema/geo"/>
+			<geo:data_source xmlns:geo="http://www.geosoft.com/schema/geo">https://lta.cr.usgs.gov/SRTM1Arc</geo:data_source>
+			<geo:type xmlns:geo="http://www.geosoft.com/schema/geo">Elevation</geo:type>
+			<geo:purpose xmlns:geo="http://www.geosoft.com/schema/geo"/>
+			<geo:project_name xmlns:geo="http://www.geosoft.com/schema/geo">SRTM 1 Arc-Second Global</geo:project_name>
+			<geo:confidentiality xmlns:geo="http://www.geosoft.com/schema/geo">Public</geo:confidentiality>
+			<geo:project_type xmlns:geo="http://www.geosoft.com/schema/geo"/>
+			<geo:subject xmlns:geo="http://www.geosoft.com/schema/geo">Geography</geo:subject>
+			<geo:description xmlns:geo="http://www.geosoft.com/schema/geo"/>
+			<geo:Metadata_created_by xmlns:geo="http://www.geosoft.com/schema/geo"/>
+			<geo:data_created_by xmlns:geo="http://www.geosoft.com/schema/geo"/>
+			<geo:country xmlns:geo="http://www.geosoft.com/schema/geo">United States</geo:country>
+			<lineage>
+				<process name="Geosoft.EIMS.GXNet.dll(Geosoft.EIMS.GX.Seeker.SeekerMainForm;Run)" user="Ian MacLeod" version="Version 2023.2 (20231121.28)" date="2024-01-28" time="14:40:29">
+					<parameter name="FIND_DATA::CoordinateSystem" value="PROJCS[&quot;Lambert_Conic_Conformal_1SP&quot;,GEOGCS[&quot;GCS_WGS_1984&quot;,DATUM[&quot;D_WGS_1984&quot;,SPHEROID[&quot;WGS_84&quot;,6378137,298.257223563002]],PRIMEM[&quot;Greenwich&quot;,0],UNIT[&quot;Degree&quot;,0.0174532925199432955]],PROJECTION[&quot;Lambert_Conformal_Conic&quot;],PARAMETER[&quot;False_Easting&quot;,0],PARAMETER[&quot;False_Northing&quot;,0],PARAMETER[&quot;Central_Meridian&quot;,-155.4945],PARAMETER[&quot;Standard_Parallel_1&quot;,19.5455],PARAMETER[&quot;Scale_Factor&quot;,1],PARAMETER[&quot;Latitude_Of_Origin&quot;,19.5455],UNIT[&quot;Meter&quot;,1]]" type="string"/>
+					<parameter name="FIND_DATA::File" value=".\SRTM1 Pacific US and Alaska.grd(GRD)" type="string"/>
+					<parameter name="FIND_DATA::MaxX" value="104257.770833914" type="string"/>
+					<parameter name="FIND_DATA::MaxY" value="90579.795695629" type="string"/>
+					<parameter name="FIND_DATA::MinX" value="-104257.77083392" type="string"/>
+					<parameter name="FIND_DATA::MinY" value="-89972.8823513575" type="string"/>
+					<parameter name="FIND_DATA::Resolution" value="100" type="string"/>
+					<parameter name="FIND_DATA::Title" value="SRTM1 Pacific US and Alaska" type="string"/>
+					<parameter name="FIND_DATA::Type" value="Grid" type="string"/>
+					<parameter name="FIND_DATA::URL" value="https://public.dap.seequent.com" type="string"/>
+				</process>
+			</lineage>
+			<georeference>
+				<dataextents>
+					<extent2d minx="-107520" miny="-92220" maxx="107520" maxy="92820"/>
+				</dataextents>
+				<projection type="LAMBERT_CONFORMAL_CONIC_1SP" name="WGS 84 / *Lambert Conic Conformal (1SP)" projection="*Lambert Conic Conformal (1SP)" ellipsoid="WGS 84" datum="WGS 84" datumtrf="WGS 84" datumtrf_description="[WGS 84] World" radius="6378137" eccentricity="0.081819190842621486">
+					<shift x="0" y="0" z="0"/>
+					<parameters scale="1" false_east="0" false_north="0" lat_origin="19.5455" lon_origin="-155.4945"/>
+					<units name="m" unit_scale="1"/>
+				</projection>
+			</georeference>
+		</dataset>
+	</geosoft>
+	<gmd:identificationInfo>
+		<gmd:MD_DataIdentification>
+			<gmd:citation>
+				<gmd:CI_Citation>
+					<gmd:alternateTitle>
+						<gco:CharacterString>SRTM 1 Arc-Second Global</gco:CharacterString>
+					</gmd:alternateTitle>
+					<gmd:title>
+						<gco:CharacterString>SRTM1 Pacific US and Alaska</gco:CharacterString>
+					</gmd:title>
+					<gmd:collectiveTitle>
+						<gco:CharacterString>SRTM 1 Arc-Second Global</gco:CharacterString>
+					</gmd:collectiveTitle>
+				</gmd:CI_Citation>
+			</gmd:citation>
+			<gmd:resourceFormat>
+				<gmd:MD_Format>
+					<gmd:name>
+						<gco:CharacterString>Geosoft HGD</gco:CharacterString>
+					</gmd:name>
+				</gmd:MD_Format>
+			</gmd:resourceFormat>
+			<gmd:descriptiveKeywords>
+				<gmd:MD_Keywords>
+					<gmd:keyword>
+						<gco:CharacterString>Digital Terrain Model</gco:CharacterString>
+					</gmd:keyword>
+					<gmd:keyword>
+						<gco:CharacterString>Regional</gco:CharacterString>
+					</gmd:keyword>
+					<gmd:keyword>
+						<gco:CharacterString>Pacific US, Alaska, Hawaii</gco:CharacterString>
+					</gmd:keyword>
+					<gmd:keyword>
+						<gco:CharacterString>North America</gco:CharacterString>
+					</gmd:keyword>
+					<gmd:keyword>
+						<gco:CharacterString>Elevation</gco:CharacterString>
+					</gmd:keyword>
+					<gmd:keyword>
+						<gco:CharacterString>Geography</gco:CharacterString>
+					</gmd:keyword>
+					<gmd:keyword>
+						<gco:CharacterString>United States</gco:CharacterString>
+					</gmd:keyword>
+				</gmd:MD_Keywords>
+			</gmd:descriptiveKeywords>
+			<gmd:extent>
+				<gmd:EX_Extent>
+					<gmd:geographicElement>
+						<gmd:EX_GeographicBoundingBox>
+							<gmd:westBoundLongitude>
+								<gco:Decimal>-156.52435125780676</gco:Decimal>
+							</gmd:westBoundLongitude>
+							<gmd:eastBoundLongitude>
+								<gco:Decimal>-154.46464874219319</gco:Decimal>
+							</gmd:eastBoundLongitude>
+							<gmd:southBoundLatitude>
+								<gco:Decimal>18.709528428162585</gco:Decimal>
+							</gmd:southBoundLatitude>
+							<gmd:northBoundLatitude>
+								<gco:Decimal>20.383923318921877</gco:Decimal>
+							</gmd:northBoundLatitude>
+						</gmd:EX_GeographicBoundingBox>
+					</gmd:geographicElement>
+				</gmd:EX_Extent>
+			</gmd:extent>
+			<gmd:spatialResolution>
+				<gmd:MD_Resolution/>
+			</gmd:spatialResolution>
+			<gmd:resourceSpecificUsage>
+				<gmd:MD_Usage>
+					<gmd:specificUsage>
+						<gco:CharacterString>Public</gco:CharacterString>
+					</gmd:specificUsage>
+				</gmd:MD_Usage>
+			</gmd:resourceSpecificUsage>
+			<gmd:pointOfContact>
+				<gmd:CI_ResponsibleParty>
+					<gmd:individualName>
+						<gco:CharacterString/>
+					</gmd:individualName>
+				</gmd:CI_ResponsibleParty>
+			</gmd:pointOfContact>
+		</gmd:MD_DataIdentification>
+	</gmd:identificationInfo>
+	<gmd:contact>
+		<gmd:CI_ResponsibleParty>
+			<gmd:individualName>
+				<gco:CharacterString>Geosoft Inc.</gco:CharacterString>
+			</gmd:individualName>
+		</gmd:CI_ResponsibleParty>
+	</gmd:contact>
+	<gmd:distrbutionInfo>
+		<gmd:MD_Distrbution>
+			<gmd:distributionFormat>
+				<gmd:MD_Format>
+					<gmd:name>
+						<gco:CharacterString>Geosoft HGD</gco:CharacterString>
+					</gmd:name>
+				</gmd:MD_Format>
+			</gmd:distributionFormat>
+		</gmd:MD_Distrbution>
+	</gmd:distrbutionInfo>
+	<gmd:dataQualityInfo>
+		<gmd:DQ_DataQuality>
+			<gmd:lineage>
+				<gmd:LI_Lineage>
+					<gmd:source>
+						<gmd:description>
+							<gco:CharacterString>http://topex.ucsd.edu/</gco:CharacterString>
+						</gmd:description>
+						<gmd:LI_Source>
+							<gmd:description>
+								<gco:CharacterString>https://lta.cr.usgs.gov/SRTM1Arc</gco:CharacterString>
+							</gmd:description>
+						</gmd:LI_Source>
+					</gmd:source>
+					<gmd:processStep xlink:type="Geosoft Process" xlink:title="Geosoft.EIMS.GXNet.dll(Geosoft.EIMS.GX.Seeker.SeekerMainForm;Run)">
+						<gmd:LI_ProcessStep>
+							<gmd:dateTime>
+								<gco:DateTime>2024-01-28T14:40:29</gco:DateTime>
+							</gmd:dateTime>
+							<gmd:processor>
+								<gmd:CI_ResponsibleParty>
+									<gmd:individualName>
+										<gco:CharacterString>Ian MacLeod</gco:CharacterString>
+									</gmd:individualName>
+								</gmd:CI_ResponsibleParty>
+							</gmd:processor>
+							<gmd:source xlink:type="Data Parameter" xlink:role="FIND_DATA::CoordinateSystem" xlink:title="PROJCS[&quot;Lambert_Conic_Conformal_1SP&quot;,GEOGCS[&quot;GCS_WGS_1984&quot;,DATUM[&quot;D_WGS_1984&quot;,SPHEROID[&quot;WGS_84&quot;,6378137,298.257223563002]],PRIMEM[&quot;Greenwich&quot;,0],UNIT[&quot;Degree&quot;,0.0174532925199432955]],PROJECTION[&quot;Lambert_Conformal_Conic&quot;],PARAMETER[&quot;False_Easting&quot;,0],PARAMETER[&quot;False_Northing&quot;,0],PARAMETER[&quot;Central_Meridian&quot;,-155.4945],PARAMETER[&quot;Standard_Parallel_1&quot;,19.5455],PARAMETER[&quot;Scale_Factor&quot;,1],PARAMETER[&quot;Latitude_Of_Origin&quot;,19.5455],UNIT[&quot;Meter&quot;,1]]">
+								<gmd:LI_Source/>
+							</gmd:source>
+							<gmd:source xlink:type="Data Parameter" xlink:role="FIND_DATA::File" xlink:title=".\SRTM1 Pacific US and Alaska.grd(GRD)">
+								<gmd:LI_Source/>
+							</gmd:source>
+							<gmd:source xlink:type="Data Parameter" xlink:role="FIND_DATA::MaxX" xlink:title="104257.770833914">
+								<gmd:LI_Source/>
+							</gmd:source>
+							<gmd:source xlink:type="Data Parameter" xlink:role="FIND_DATA::MaxY" xlink:title="90579.795695629">
+								<gmd:LI_Source/>
+							</gmd:source>
+							<gmd:source xlink:type="Data Parameter" xlink:role="FIND_DATA::MinX" xlink:title="-104257.77083392">
+								<gmd:LI_Source/>
+							</gmd:source>
+							<gmd:source xlink:type="Data Parameter" xlink:role="FIND_DATA::MinY" xlink:title="-89972.8823513575">
+								<gmd:LI_Source/>
+							</gmd:source>
+							<gmd:source xlink:type="Data Parameter" xlink:role="FIND_DATA::Resolution" xlink:title="100">
+								<gmd:LI_Source/>
+							</gmd:source>
+							<gmd:source xlink:type="Data Parameter" xlink:role="FIND_DATA::Title" xlink:title="SRTM1 Pacific US and Alaska">
+								<gmd:LI_Source/>
+							</gmd:source>
+							<gmd:source xlink:type="Data Parameter" xlink:role="FIND_DATA::Type" xlink:title="Grid">
+								<gmd:LI_Source/>
+							</gmd:source>
+							<gmd:source xlink:type="Data Parameter" xlink:role="FIND_DATA::URL" xlink:title="https://public.dap.seequent.com">
+								<gmd:LI_Source/>
+							</gmd:source>
+						</gmd:LI_ProcessStep>
+					</gmd:processStep>
+				</gmd:LI_Lineage>
+			</gmd:lineage>
+		</gmd:DQ_DataQuality>
+	</gmd:dataQualityInfo>
+	<gmd:dateStamp>
+		<gco:Date>2016-4-4</gco:Date>
+	</gmd:dateStamp>
+	<gmd:referenceSystemInfo>
+		<gmd:MD_ReferenceSystem>
+			<gmd:referenceSystemIdentifier>
+				<gmd:RS_Identifier>
+					<gmd:codeSpace>
+						<gco:CharacterString>ESRI</gco:CharacterString>
+					</gmd:codeSpace>
+					<gmd:code>
+						<gco:CharacterString>PROJCS["Lambert_Conic_Conformal_1SP",GEOGCS["GCS_WGS_1984",DATUM["D_WGS_1984",SPHEROID["WGS_84",6378137,298.257223563002]],PRIMEM["Greenwich",0],UNIT["Degree",0.0174532925199432955]],PROJECTION["Lambert_Conformal_Conic"],PARAMETER["False_Easting",0],PARAMETER["False_Northing",0],PARAMETER["Central_Meridian",-155.4945],PARAMETER["Standard_Parallel_1",19.5455],PARAMETER["Scale_Factor",1],PARAMETER["Latitude_Of_Origin",19.5455],UNIT["Meter",1]]</gco:CharacterString>
+					</gmd:code>
+					<gmd:version>
+						<gco:CharacterString>1</gco:CharacterString>
+					</gmd:version>
+				</gmd:RS_Identifier>
+			</gmd:referenceSystemIdentifier>
+		</gmd:MD_ReferenceSystem>
+	</gmd:referenceSystemInfo>
+</gmd:MD_Metadata>
