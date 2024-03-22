@@ -1,12 +1,16 @@
 #
-# This script copies an input Gcode file to an output. Any lines that end with the pattern will have
-# a string appended.  This is intended to add a faster feed rate when the tool is raised, which
-# is identified by a "Z" command above the workpiece.
+# Copy an input Fusion 360 Gcode file (.nc) to an output and replace any tool-up movements
+# with rapid machine movements.  The output file(s) will have a '_' prefix.
+
 #   Usage example:
 #
-#      python gcode input_file.nc output_file.nc "Z0.2" "F400"
+#      python gcode.py input_file.nc  // creates _input_file.nc
+#      python gcode.py // iterates through all .nc files in the current folder
+#      python gcode.py "D://my nc programs" // iterates through all .nc programs in this folder
 #
-#
+# History:
+#   INM 2024-3-21 version 1
+
 import os
 import sys
 from pathlib import Path
