@@ -20,8 +20,10 @@ PROCESSED_PREFIX = '_'
 
 def show_usage():
     script = Path(sys.argv[0]).name
-    print(f"Usage: python {script} [file or folder] -> file or *.nc files to max speed\
-          \n\tProcessed files will have '{PROCESSED_PREFIX}' prefixed to the file name.")
+    print(f"\nUsage: python {script} [file or folder] -> file or path with .ncx files to process.\n\n\
+       Files are processed to add maximum tool-up speed for .NCX files created using Fusion360\n\
+       CAM under the hobby (free) license.  The Fusion360 PostProcessor needs to be modified to\n\
+       save nc files with extension .ncx. Processed files are saved as .nc files.")
 
 
 class Gcode:
@@ -37,8 +39,8 @@ class Gcode:
         self.output = open(out_file, 'w')
         self.verbose = verbose
         if verbose:
-            print(f"\nprocessing: {file_name}\n" +
-                  f"    output: {out_file}")
+            print(f"\nprocessing: \"{file_name}\"\n" +
+                  f"    output: \"{out_file}\"")
 
         # initialize tracking info
         self.x = self.y = self.z = 0.0
@@ -132,45 +134,42 @@ def process(gcode_input, gcode_output, verbose=False):
 if __name__ == "__main__":
 
     processed = 0
-    path = os.getcwd()
 
     try:
 
         # make a list of files to process
 
-        if len(sys.argv) >= 2:
-            path = sys.argv[1]
+        if len(sys.argv) <= 1:
+            raise ValueError
 
+        path = sys.argv[1].lower()
+
+        # file
         if os.path.isfile(path):
-            candidates = [path, ]
+            if path[-4:] != '.ncx':
+                print(f"\n{path} is not a '.ncx' file.")
+                raise ValueError
+            ncxlist = [path,]
+
+        # path
         else:
             d = Path(path)
-            candidates = [d / f for f in os.listdir(path) if f.endswith('.nc')]
+            ncxlist = [d / f for f in os.listdir(path) if f.endswith('.ncx')]
 
-        # create list of files that have not already been processed
-        files = []
-        for f in candidates:
-            p = Path(f)
-            n = str(p.name)
-            if n[0] != PROCESSED_PREFIX[0]:
-                files.append((p, p.parent / (PROCESSED_PREFIX + n)))
+        if len(ncxlist) == 0:
+            print(f"\nNo files found to process in file/path: '{path}'\n")
+            raise ValueError
 
-        if len(files) == 0:
-            print(f"No files found to process in file/path: {path}'\n")
-            show_usage()
-
-        for f in files:
-            process(f[0], f[1], verbose=True)
+        for f in ncxlist:
+            process(f, str(f)[:-1], verbose=True)
             processed += 1
 
-    except IndexError:
-        print("No file or folder specified.\n")
+    except ValueError:
         show_usage()
 
     except OSError:
-        print(f"Invalid file or path: {path}")
+        print(f"\nInvalid file or path: {path}")
         show_usage()
 
-    finally:
-        if processed:
-            print(f"\nSuccessfully processed {processed} files.")
+    if processed:
+        print(f"\nSuccessfully processed {processed} file(s).")
