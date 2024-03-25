@@ -133,7 +133,12 @@ def process(gcode_input, gcode_output, verbose=False):
 
 if __name__ == "__main__":
 
+    def outname(f):
+        return str(Path(f))[:-1]
+
     processed = 0
+    path = ''
+    ncxlist = []
 
     try:
 
@@ -142,34 +147,40 @@ if __name__ == "__main__":
         if len(sys.argv) <= 1:
             raise ValueError
 
-        path = sys.argv[1].lower()
+        path = Path(sys.argv[1].lower())
+
+        # if there is more than one argument, extract the path only from the first argument
+        if len(sys.argv) > 2:
+            path = str(Path(path).parent)
 
         # file
         if os.path.isfile(path):
-            if path[-4:] != '.ncx':
-                print(f"\n{path} is not a '.ncx' file.")
+            if str(path)[-4:] != '.ncx':
+                print(f"\n\"{path}\" is not a '.ncx' file.")
                 raise ValueError
-            ncxlist = [path,]
+            ncxlist = [Path(path),]
 
         # path
         else:
             d = Path(path)
-            ncxlist = [d / f for f in os.listdir(path) if f.endswith('.ncx')]
+            ncxlist = [d / f.lower() for f in os.listdir(path) if f.lower().endswith('.ncx')]
 
         if len(ncxlist) == 0:
-            print(f"\nNo files found to process in file/path: '{path}'\n")
+            print(f"\nNo files found to process in file/path: \"{path}\"\n")
             raise ValueError
 
         for f in ncxlist:
-            process(f, str(f)[:-1], verbose=True)
+            process(f, outname(f), verbose=True)
             processed += 1
 
     except ValueError:
         show_usage()
 
     except OSError:
-        print(f"\nInvalid file or path: {path}")
+        print(f"\nInvalid file or folder: {path}")
         show_usage()
 
     if processed:
-        print(f"\nSuccessfully processed {processed} file(s).")
+        print(f"\nSuccessfully processed {processed} file(s):")
+        for f in ncxlist:
+            print(f"\t{f} -> {Path(outname(f)).name}")
