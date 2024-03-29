@@ -43,9 +43,11 @@ class Gcode:
                   f"    output: \"{out_file}\"")
 
         # initialize tracking info
-        self.x = self.y = self.z = 0.0
+        self.x = self.y = 0.0
+        self.z = None
         self.xs = self.ys = self.zs = self.feed = ''
         self.z_up = False
+        self.z_down = False
         self.fast = False
         self.slow = False
 
@@ -60,7 +62,9 @@ class Gcode:
                 self.ys = c
             elif c[0] == 'Z':
                 z = float(c[1:])
-                self.z_up = z > self.z
+                if not(self.z is None):
+                    self.z_up = z > self.z
+                    self.z_down = z < self.z
                 self.z = z
                 self.zs = c
             elif c[0] == 'F':
@@ -82,41 +86,35 @@ class Gcode:
                 self._track(prs[1:])
 
                 # looking for a 'G0' as the second command to start
-                if start:
-                    if len(prs) > 1 and prs[1] == 'G0':
-                        start = False
+                if len(prs) > 1 and prs[1] == 'G0':
+                    self.fast = True
+                    start = False
 
                 if not start:
                     if self.z_up:
                         self.z_up = False
-                        if len(prs) == 3 and prs[1] == "G1" and prs[2][0] == 'Z':
-                            # this should be a G0 movement
-                            self.fast = True
-                            o = f"{prs[0]} G0 {prs[2]}"
-                            self.output.write(f"{o}\n")
-                            if self.verbose:
-                                print(o)
-                            continue
-                        if len(prs) == 2 and prs[1][0] == 'Z':
-                            # this should be a G0 movement
-                            self.fast = True
-                            o = f"{prs[0]} G0 {prs[1]}"
-                            self.output.write(f"{o}\n")
-                            if self.verbose:
-                                print(o)
-                            continue
+                        if not('X' in oline or 'Y' in oline or 'F' in oline):
+
+                            if not self.fast:
+
+                                # this Z up starts a G0 (fast) movement
+                                self.fast = True
+                                o = f"{prs[0]} G0 {self.zs}"
+                                self.output.write(f"{o}\n")
+                                if self.verbose:
+                                    print(o)
+                                continue
+
                     if self.fast:
-                        self.fast = False
-                        if len(prs) == 3 and prs[1][0] == 'X' and prs[2][0] == 'Y':
+                        if self.z_down or 'F' in oline:
+                            # Feed rates can only apply for G1, so switch to slow.
                             self.slow = True
-                            o = f"{prs[0]} G0 {prs[1]} {prs[2]}"
-                            self.output.write(f"{o}\n")
-                            if self.verbose:
-                                print(o)
-                            continue
+                            self.fast = False
+                            self.z_down = False
+
                     if self.slow:
                         self.slow = False
-                        if len(prs) >= 2 and prs[1][0] in "XYZ":
+                        if prs[1][0] != 'G':
                             o = f"{prs[0]} G1 {self.xs} {self.ys} {self.zs} {self.feed}"
                             self.output.write(f"{o}\n")
                             if self.verbose:
