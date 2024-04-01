@@ -2,6 +2,7 @@
 # Copy an input Fusion 360 Gcode file (.nc) to an output and replace any tool-up movements
 # with rapid machine movements.  The output file(s) will have a '_' prefix.
 
+
 #   Usage example:
 #
 #      python gcode.py input_file.nc  // creates _input_file.nc
@@ -9,13 +10,14 @@
 #      python gcode.py "D://my nc programs" // iterates through all .nc programs in this folder
 #
 # History:
-#   INM 2024-3-21 version 1
+#   See history at https://github.com/ianneilmacleod/MakiMade/commits/main/Gcode
 
 import os
 import sys
 from pathlib import Path
 
 PROCESSED_PREFIX = '_'
+Z_TOLERANCE = 0.2  # Z up movement tolerance
 
 
 def show_usage():
@@ -63,7 +65,7 @@ class Gcode:
             elif c[0] == 'Z':
                 z = float(c[1:])
                 if not(self.z is None):
-                    self.z_up = z > self.z
+                    self.z_up = (z - self.z) > Z_TOLERANCE
                     self.z_down = z < self.z
                 self.z = z
                 self.zs = c
