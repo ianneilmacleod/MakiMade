@@ -17,7 +17,7 @@ import sys
 from pathlib import Path
 
 PROCESSED_PREFIX = '_'
-Z_TOLERANCE = 0.2  # Z up movement tolerance
+Z_TOLERANCE = 0.199  # Z up movement tolerance
 
 
 def show_usage():
@@ -37,7 +37,7 @@ class Gcode:
         self.input = open(file_path, 'r')
 
         if out_file is None:
-            out_file = p.parent / (PROCESSED_PREFIX + p.name)
+            out_file = file_path.parent / (PROCESSED_PREFIX + file_path.name)
         self.output = open(out_file, 'w')
         self.verbose = verbose
         if verbose:
@@ -65,7 +65,7 @@ class Gcode:
             elif c[0] == 'Z':
                 z = float(c[1:])
                 if not(self.z is None):
-                    self.z_up = (z - self.z) > Z_TOLERANCE
+                    self.z_up = (z - self.z) >= Z_TOLERANCE
                     self.z_down = z < self.z
                 self.z = z
                 self.zs = c
@@ -95,7 +95,7 @@ class Gcode:
                 if not start:
                     if self.z_up:
                         self.z_up = False
-                        if not('X' in oline or 'Y' in oline or 'F' in oline):
+                        if not('X' in oline or 'Y' in oline):
 
                             if not self.fast:
 
